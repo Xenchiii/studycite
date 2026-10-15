@@ -1,0 +1,21 @@
+{
+  "name": "studycite-worker",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 execute studycite --local --file=schema.sql",
+    "db:remote": "wrangler d1 execute studycite --remote --file=schema.sql",
+    "build:wasm": "sh cpp/build.sh"
+  },
+  "dependencies": {
+    "fflate": "^0.8.2",
+    "unpdf": "^0.12.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.9",
+    "wrangler": "^4.0.0"
+  }
+}

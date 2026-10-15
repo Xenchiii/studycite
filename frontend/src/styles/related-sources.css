@@ -1,0 +1,38 @@
+.rs {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px dashed currentColor;
+}
+.rs-title {
+  margin: 0 0 4px;
+}
+.rs-find {
+  margin: 6px 0 12px;
+}
+.rs-group {
+  margin-top: 14px;
+}
+.rs-group-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.rs-card {
+  margin-bottom: 10px;
+}
+.rs-link {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.rs-link:hover {
+  text-decoration-thickness: 2px;
+}
+.rs-meta {
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  opacity: 0.75;
+}

@@ -1,0 +1,402 @@
+.landing-features {
+  align-items: stretch;
+}
+
+.flip-card {
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+  min-height: 0;
+  outline: none;
+  border-radius: var(--radius);
+  transition: transform 0.12s ease;
+  animation: card-in 0.5s ease both;
+  animation-delay: calc(var(--i, 0) * 90ms);
+}
+.flip-card:hover {
+  transform: translate(-2px, -2px);
+}
+.flip-card:active {
+  transform: translate(0, 0);
+}
+.flip-card:focus-visible {
+  outline: 2px dashed var(--blue);
+  outline-offset: 5px;
+}
+.flip-card:hover .feature-card {
+  box-shadow: var(--hard-shadow);
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.flip-card-inner {
+  display: grid;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip-card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  grid-area: 1 / 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-top-width: 6px;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card .flip-front:hover {
+  transform: none;
+}
+.flip-card .flip-back:hover {
+  transform: rotateY(180deg);
+}
+
+.feature-icon-stamp {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+  background: var(--blue-pale);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+  transform: rotate(-6deg);
+  box-shadow:
+    0 0 0 3px var(--panel),
+    0 0 0 4px var(--blue-soft);
+  transition: transform 0.2s ease;
+}
+.feature-icon-stamp svg {
+  width: 24px;
+  height: 24px;
+}
+.flip-card:hover .feature-icon-stamp {
+  transform: rotate(4deg) scale(1.05);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 16px;
+}
+.mini-tag {
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+  background: var(--blue-pale);
+  border: 1px solid var(--blue-soft);
+  padding: 2px 8px;
+  border-radius: var(--radius);
+}
+
+.flip-back {
+  background: var(--blue-dark);
+  color: var(--panel);
+  border-top-color: var(--caution);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 22px,
+    rgba(255, 255, 255, 0.06) 22px,
+    rgba(255, 255, 255, 0.06) 23px
+  );
+}
+.flip-back h3 {
+  color: var(--panel);
+}
+.flip-back p {
+  color: var(--panel);
+  opacity: 0.88;
+}
+.flip-back .feature-number {
+  color: var(--panel);
+  opacity: 0.7;
+}
+.flip-kicker {
+  align-self: flex-start;
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--blue-dark);
+  background: var(--caution-soft);
+  border: 1.5px solid var(--caution);
+  padding: 3px 8px;
+  border-radius: var(--radius);
+  margin-bottom: 14px;
+  transform: rotate(-2deg);
+}
+
+.flip-foot {
+  position: relative;
+  margin: auto -18px 0;
+  padding: 12px 18px 0;
+  border-top: 2px dashed var(--border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.flip-foot::before,
+.flip-foot::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border);
+}
+.flip-foot::before {
+  left: -11px;
+}
+.flip-foot::after {
+  right: -11px;
+}
+.flip-back .flip-foot {
+  border-top-color: rgba(255, 255, 255, 0.35);
+}
+
+.flip-hint {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: var(--blue);
+  margin: 0;
+  padding: 0;
+}
+.flip-front .flip-hint::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+.flip-card:hover .flip-front .flip-hint::after {
+  transform: translateX(4px);
+}
+.flip-back .flip-hint {
+  color: var(--caution-soft);
+}
+.flip-back .flip-hint::before {
+  content: "← ";
+}
+.flip-step {
+  font-family: var(--font-display);
+  font-size: 10px;
+  color: var(--muted);
+  border: 1px dashed var(--border-soft);
+  padding: 2px 7px;
+  border-radius: var(--radius);
+}
+.flip-back .flip-step {
+  color: var(--panel);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ---------- Back: shared mini "paper" panel ---------- */
+.mini {
+  margin: 14px 0 16px;
+  padding: 12px;
+  background: var(--panel);
+  color: var(--ink);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.35);
+  transform: rotate(-0.6deg);
+  animation: mini-in 0.45s 0.35s ease both;
+}
+@keyframes mini-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) rotate(-0.6deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(-0.6deg);
+  }
+}
+
+.mini-files {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.mini-file-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+.mini-file-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mini-file-meta {
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+.mini-bar {
+  height: 6px;
+  background: var(--blue-soft);
+  border: 1px solid var(--border-soft);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.mini-bar span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--blue) 0,
+    var(--blue) 5px,
+    var(--blue-mid) 5px,
+    var(--blue-mid) 10px
+  );
+  animation: bar-fill 0.9s calc(0.6s + var(--k, 0) * 0.2s) ease forwards;
+}
+@keyframes bar-fill {
+  to {
+    width: var(--w);
+  }
+}
+.mini-caption {
+  font-family: var(--font-display);
+  font-size: 9.5px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.mini-q {
+  font-family: var(--font-display);
+  font-size: 10.5px;
+  background: var(--blue);
+  color: var(--panel);
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+}
+.mini-a {
+  font-size: 11.5px;
+  line-height: 1.6;
+  margin: 0 0 10px;
+  color: var(--ink);
+  opacity: 1;
+}
+.mini-src {
+  font-size: 10.5px;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--muted);
+  border-left: 3px solid var(--blue);
+  padding-left: 8px;
+}
+.mini-src-page {
+  display: block;
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 9.5px;
+  color: var(--blue);
+  margin-bottom: 2px;
+}
+
+.mini-receipt {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mini-verdict {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px dashed var(--border-soft);
+  padding-bottom: 8px;
+}
+.mini-verdict:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.mini-verdict .score-pill {
+  animation: stamp-in 0.35s calc(0.6s + var(--k, 0) * 0.25s)
+    cubic-bezier(0.2, 1.6, 0.4, 1) both;
+}
+@keyframes stamp-in {
+  from {
+    opacity: 0;
+    transform: scale(1.8) rotate(-12deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(-3deg);
+  }
+}
+.mini-verdict-note {
+  font-size: 10.5px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+[data-theme="dark"] .flip-back,
+[data-theme="dark"] .flip-back h3,
+[data-theme="dark"] .flip-back p,
+[data-theme="dark"] .flip-back .feature-number,
+[data-theme="dark"] .flip-back .flip-step {
+  color: #161b23;
+}
+[data-theme="dark"] .flip-back .flip-hint {
+  color: #3a3018;
+}
+[data-theme="dark"] .flip-back {
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 22px,
+    rgba(0, 0, 0, 0.08) 22px,
+    rgba(0, 0, 0, 0.08) 23px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flip-card,
+  .mini,
+  .mini-bar span,
+  .mini-verdict .score-pill {
+    animation: none;
+  }
+  .flip-card-inner {
+    transition: none;
+  }
+  .mini-bar span {
+    width: var(--w);
+  }
+}

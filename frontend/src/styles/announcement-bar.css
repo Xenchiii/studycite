@@ -1,0 +1,192 @@
+.ab {
+  --ab-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  width: 100%;
+  max-height: 60px;
+  overflow: hidden;
+  background: var(--blue-dark);
+  color: var(--panel);
+  transition:
+    max-height 0.26s var(--ab-ease),
+    opacity 0.26s var(--ab-ease);
+}
+
+.ab.is-closing {
+  max-height: 0;
+  opacity: 0;
+}
+
+.ab-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 9px 24px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  column-gap: 16px;
+}
+
+.ab-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border: 1.5px dashed currentColor;
+  border-radius: var(--radius);
+  font-family: var(--font-display);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transform: rotate(-2deg);
+}
+
+.ab-message {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 11.5px;
+  animation: ab-slide 0.4s var(--ab-ease) both;
+}
+
+.ab-message i {
+  flex-shrink: 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.ab-message span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@keyframes ab-slide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ab-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ab-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.6;
+  transition:
+    background 0.2s var(--ab-ease),
+    opacity 0.2s var(--ab-ease),
+    transform 0.2s var(--ab-ease);
+}
+
+.ab-dot:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.ab-dot.is-active {
+  background: currentColor;
+  opacity: 1;
+}
+
+.ab-close {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: 0.75;
+  transition:
+    background 0.18s var(--ab-ease),
+    opacity 0.18s var(--ab-ease),
+    transform 0.18s var(--ab-ease);
+}
+
+.ab-close:hover {
+  background: rgba(255, 255, 255, 0.14);
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.ab-dot:focus-visible,
+.ab-close:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.ab-progress {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: ab-fill var(--ab-interval, 4500ms) linear forwards;
+}
+
+@keyframes ab-fill {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.ab:hover .ab-progress,
+.ab:focus-within .ab-progress {
+  animation-play-state: paused;
+}
+
+@media (max-width: 640px) {
+  .ab-inner {
+    grid-template-columns: 1fr auto;
+    padding: 9px 16px;
+  }
+
+  .ab-tag,
+  .ab-dots {
+    display: none;
+  }
+
+  .ab-message {
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ab,
+  .ab-message,
+  .ab-dot,
+  .ab-close {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .ab-progress {
+    display: none;
+  }
+}

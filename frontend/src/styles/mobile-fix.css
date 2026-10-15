@@ -1,0 +1,212 @@
+@media (max-width: 900px) {
+  html,
+  body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  html body .landing {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
+
+  html body .landing *,
+  html body .landing *::before,
+  html body .landing *::after {
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  html body .landing .reveal,
+  html body .landing .reveal-wide {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+  }
+
+  html body .landing section,
+  html body .landing .hero,
+  html body .landing .stats-row,
+  html body .landing .site-footer,
+  html body .landing .cta-banner,
+  html body .landing .ticker,
+  html body .landing .nav,
+  html body .landing .navbar,
+  html body .landing .ab {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  html body .landing .hero {
+    display: block !important;
+    padding: 24px 16px !important;
+  }
+
+  html body .landing .hero-copy {
+    width: 100% !important;
+    margin-bottom: 32px !important;
+  }
+
+  html body .landing .hero-visual {
+    display: block !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin-top: 24px !important;
+  }
+
+  html body .landing .hero-tape {
+    display: none !important;
+  }
+
+  html body .landing .hero-stamp {
+    position: static !important;
+    display: inline-block !important;
+    margin-top: 14px !important;
+    transform: rotate(-4deg) !important;
+  }
+
+  html body .landing .demo-mockup {
+    width: 100% !important;
+    max-width: 100% !important;
+    animation: none !important;
+    overflow: hidden !important;
+  }
+
+  html body .landing .demo-mockup::after {
+    display: none !important;
+  }
+
+  html body .landing .demo-body {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 14px !important;
+  }
+
+  html body .landing .demo-col {
+    width: 100% !important;
+  }
+
+  html body .landing .demo-bubble,
+  html body .landing .demo-source-card,
+  html body .landing .demo-source-card strong,
+  html body .landing .demo-source-card p {
+    max-width: 100% !important;
+    overflow-wrap: anywhere !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+  }
+
+  html body .landing .stats-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    padding: 24px 16px 8px !important;
+  }
+
+  html body .landing .stat {
+    width: 100% !important;
+  }
+
+  html body .landing .landing-features,
+  html body .landing .design-grid,
+  html body .landing .audience-grid,
+  html body .landing .testimonial-grid,
+  html body .landing .pricing-grid,
+  html body .landing .pipeline-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    width: 100% !important;
+    padding: 0 16px !important;
+  }
+
+  html body .landing .flip-card,
+  html body .landing .feature-card,
+  html body .landing .audience-card,
+  html body .landing .pricing-card,
+  html body .landing .design-block,
+  html body .landing .pipeline-step {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  html body .landing .flip-card,
+  html body .landing .flip-card-inner {
+    min-height: 460px !important;
+  }
+
+  html body .landing .pricing-card.highlight::after {
+    display: none !important;
+  }
+
+  html body .landing .section-heading,
+  html body .landing .faq-list,
+  html body .landing .stk-flow-wrap,
+  html body .landing .stk-tabs {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    max-width: 100% !important;
+  }
+
+  html body .landing .style-switcher-wrap {
+    padding: 0 16px 8px !important;
+  }
+
+  html body .landing .live-demo-card,
+  html body .landing .requisition-card,
+  html body .landing .quiz-card {
+    width: auto !important;
+    max-width: none !important;
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  html body .landing .comparison-table-wrap,
+  html body .landing .stk-scroll {
+    width: 100% !important;
+    overflow-x: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  html body .landing .carousel {
+    padding: 0 8px !important;
+    gap: 6px !important;
+  }
+
+  html body .landing .footer-top {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  html body .landing .footer-bottom {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  html body .landing .scroll-rail,
+  html body .landing .nav-links,
+  html body .landing .nav-actions {
+    display: none !important;
+  }
+
+  html body .landing .back-to-top {
+    width: 38px !important;
+    height: 38px !important;
+    right: 10px !important;
+    bottom: calc(10px + env(safe-area-inset-bottom, 0px)) !important;
+    opacity: 0.9;
+  }
+
+  html body .landing .ticker {
+    overflow: hidden !important;
+  }
+}

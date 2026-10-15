@@ -1,0 +1,12 @@
+name = "studycite-api"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "studycite"
+database_id = "43571173-73ba-4822-b700-04ca3f8086bb"
+
+[vars]
+ALLOWED_ORIGIN = "https://studycite.pages.dev"
+MAX_DOCUMENTS = "5"

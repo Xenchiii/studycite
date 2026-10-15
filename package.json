@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bootstrap-icons": "^1.13.1"
+  },
+  "devDependencies": {
+    "postcss": "^8.5.30",
+    "strip-comments": "^2.0.1"
+  }
+}
